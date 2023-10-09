@@ -33,3 +33,45 @@ Use the scripts at your own risk.
 License: MIT
 
 Author: SHIELD
+
+
+
+
+
+
+
+
+
+
+
+
+
+YouTube-Auto-Subscribe
+
+This script subscribes to all the YouTube channels in a text file.
+
+Requirements:
+
+Python 3
+curl
+Usage:
+
+Clone this repository.
+Install the requirements.
+Create a text file called input_data.txt and add the IDs of the YouTube channels you want to subscribe to.
+Run the script:
+python youtube-auto-subscribe.py
+Example:
+
+Subscribe to all the YouTube channels in the file input_data.txt:
+
+python youtube-auto-subscribe.py
+Notes:
+
+You need to be logged in to YouTube for the script to work.
+The script is still under development, so there may be bugs. Use the script at your own risk.
+License: MIT
+
+Author:
+
+SHIELD
