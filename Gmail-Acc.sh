@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Set the -e option to cause the script to exit immediately if any command returns a non-zero exit status
+set -e
+
+# Define a trap handler function
+trap 'echo "An error occurred in the script. Exiting."; exit 1' ERR
+
 # Number of usernames to generate
 num_usernames=10
 
@@ -8,6 +14,7 @@ output_file="created_usernames.txt"
 
 # Generate usernames
 for ((i=1; i<=num_usernames; i++)); do
+
   # Generate a random username
   username="user_$i"
 
@@ -24,7 +31,7 @@ for ((i=1; i<=num_usernames; i++)); do
   # Check if the username is available
   if [[ $response == *'"isAvailable":true'* ]]; then
     echo "Creating Gmail account with username: $username"
-    
+
     # Create Gmail account with the extracted headers, cookies, and the username
     gmail_response=$(curl -s -k -X POST \
       -H "$headers" \
@@ -43,3 +50,6 @@ for ((i=1; i<=num_usernames; i++)); do
     echo "Username '$username' is not available."
   fi
 done
+
+# Exit the script successfully
+exit 0
